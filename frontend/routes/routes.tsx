@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
-import { AboutUsPage, Homepage } from "../pages";
+import { ClassPage } from "../pages/ClassesPage";
+import { Homepage } from "../pages/HomePage";
 
 export const Router = createBrowserRouter([
   {
     path: "/",
-    element: <Homepage />, // Renders directly at the root URL
+    element: <Homepage />,
   },
   {
-    path: "/aboutus",
-    element: <AboutUsPage />,
+    path: "/classes",
+    element: <ClassPage />,
   },
 ]);

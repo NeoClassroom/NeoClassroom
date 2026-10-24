@@ -61,3 +61,4 @@ export * from "./BellIcon";
 export * from "./Classroom";
 export * from "./AssignmentIcon";
 export * from "./GradeIcon";
+export * from "./ResourcesIcon";

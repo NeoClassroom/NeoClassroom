@@ -17,7 +17,7 @@ describe("Button", () => {
   it.each([
     ["primary", "bg-primary"],
     ["secondary", "bg-secondary"],
-    ["tertiary", "text-success"],
+    ["tertiary", "bg-success"],
   ] as const)("applies the %s variant styles", (variant, className) => {
     render(<Button variant={variant}>Action</Button>);
 

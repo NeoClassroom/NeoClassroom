@@ -21,7 +21,10 @@ export default defineConfig({
         test: {
           name: "unit",
           environment: "jsdom",
-          include: ["components/**/*.test.{ts,tsx}"],
+          include: [
+            "components/**/*.test.{ts,tsx}",
+            "pages/**/*.test.{ts,tsx}",
+          ],
         },
       },
       {

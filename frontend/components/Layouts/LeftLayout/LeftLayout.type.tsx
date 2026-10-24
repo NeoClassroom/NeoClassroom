@@ -7,4 +7,8 @@ export interface LeftLayoutProps {
   position?: "right" | "left";
   profileIcon?: ReactNode;
   profileName?: string;
+  collapsed?: boolean;
+  mobileOpen?: boolean;
+  onToggleCollapsed?: () => void;
+  onCloseMobile?: () => void;
 }

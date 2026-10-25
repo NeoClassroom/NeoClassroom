@@ -62,3 +62,6 @@ export * from "./Classroom";
 export * from "./AssignmentIcon";
 export * from "./GradeIcon";
 export * from "./ResourcesIcon";
+export * from "./BookIcon";
+export * from "./LearningIcon";
+export * from "./AttendanceIcon";

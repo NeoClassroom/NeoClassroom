@@ -68,6 +68,9 @@ import {
   Classroom,
   AssignmentIcon,
   GradeIcon,
+  BookIcon,
+  LearningIcon,
+  AttendanceIcon,
 } from "./icons";
 import { Icon } from "./Icon";
 import { ResourcesIcon } from "./icons/ResourcesIcon";
@@ -141,6 +144,9 @@ describe("Icons", () => {
     { name: "AssignmentIcon", icon: AssignmentIcon },
     { name: "GradeIcon", icon: GradeIcon },
     { name: "ResourcesIcon", icon: ResourcesIcon },
+    { name: "BookIcon", icon: BookIcon },
+    { name: "LearningIcon", icon: LearningIcon },
+    { name: "AttendanceIcon", icon: AttendanceIcon },
   ];
 
   icons.forEach(({ name, icon: Icons }) => {

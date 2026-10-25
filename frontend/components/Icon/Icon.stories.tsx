@@ -65,6 +65,9 @@ import {
   BellIcon,
   Classroom,
   AssignmentIcon,
+  BookIcon,
+  LearningIcon,
+  AttendanceIcon,
 } from "./icons";
 import { Icon } from "./Icon";
 import { ResourcesIcon } from "./icons/ResourcesIcon";
@@ -151,6 +154,9 @@ export const NiomIcons = {
         Classroom,
         AssignmentIcon,
         ResourcesIcon,
+        BookIcon,
+        LearningIcon,
+        AttendanceIcon,
       ].map((IconComponent, index) => (
         <div key={index} className="flex flex-col items-center gap-2">
           <Icon icon={IconComponent} size={32} color="var(--color-primary)" />

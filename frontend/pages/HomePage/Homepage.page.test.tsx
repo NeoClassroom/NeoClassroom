@@ -1,5 +1,11 @@
 import "@testing-library/jest-dom/vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Homepage } from "./Homepage.page";
@@ -8,6 +14,43 @@ import { ClassPage } from "../ClassesPage";
 afterEach(cleanup);
 
 describe("Homepage navigation", () => {
+  it("shows titles and descriptions on the image-backed class cards", () => {
+    render(
+      <MemoryRouter>
+        <Homepage />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole("heading", { name: "OOSD" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "ASAS" })).toBeInTheDocument();
+    expect(
+      screen.getAllByText("Continue learning in your class workspace."),
+    ).toHaveLength(2);
+    expect(screen.getByRole("heading", { name: "OOSD" }).closest("article"))
+      .toHaveStyle({ backgroundImage: expect.stringContaining("url(") });
+  });
+
+  it("shows card skeletons while the home overview loads", async () => {
+    render(
+      <MemoryRouter>
+        <Homepage />
+      </MemoryRouter>,
+    );
+
+    const overview = screen.getByRole("region", {
+      name: "Classroom overview",
+    });
+
+    expect(overview).toHaveAttribute("aria-busy", "true");
+    expect(overview.querySelectorAll('[aria-hidden="true"]').length).toBe(6);
+
+    await waitFor(() => {
+      expect(overview).toHaveAttribute("aria-busy", "false");
+    });
+
+    expect(screen.getByText("Active classes")).toBeInTheDocument();
+  });
+
   it("shows Home as active initially", () => {
     render(
       <MemoryRouter>

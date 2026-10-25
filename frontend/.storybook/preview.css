@@ -1,0 +1,11 @@
+.sb-show-main,
+.sbdocs-wrapper {
+  background: #070b11 !important;
+  color: #f1f5f9;
+}
+
+.sbdocs-content,
+.sbdocs-preview,
+.docblock-argstable {
+  color: #f1f5f9;
+}

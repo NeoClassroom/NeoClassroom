@@ -1,8 +1,23 @@
 import type { Preview } from '@storybook/react-vite'
+import { themes } from 'storybook/theming'
 import '../src/index.css'
+import './preview.css'
 
 const preview: Preview = {
   parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'classroom-dark',
+      options: {
+        'classroom-dark': {
+          name: 'Classroom dark',
+          value: '#070b11',
+        },
+      },
+    },
+    docs: {
+      theme: themes.dark,
+    },
     controls: {
       matchers: {
        color: /(background|color)$/i,

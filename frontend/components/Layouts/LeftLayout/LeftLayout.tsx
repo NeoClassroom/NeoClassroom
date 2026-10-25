@@ -19,14 +19,19 @@ import { useState } from "react";
 const navigationItems = [
   { id: "home", label: "Home", icon: <HomeIcon />, path: "/" },
   { id: "classes", label: "Classes", icon: <Classroom />, path: "/classes" },
-  { id: "calendar", label: "Calendar", icon: <CalenderIcon /> },
+  {
+    id: "calendar",
+    label: "Calendar",
+    icon: <CalenderIcon />,
+    path: "/calender",
+  },
   { id: "assignments", label: "Assignments", icon: <AssignmentIcon /> },
   { id: "grades", label: "Grades", icon: <GradeIcon /> },
   { id: "resources", label: "Resources", icon: <ResourcesIcon /> },
 ] as const;
 
 export const LeftLayout = ({
-  title = "Test",
+  title = "NeoClassroom",
   icon = <Profile />,
   children,
   position = "left",

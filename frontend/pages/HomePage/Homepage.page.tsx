@@ -113,7 +113,7 @@ export const Homepage = () => {
               className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 my-5 "
             >
               {overview.map((item) => (
-                <Card key={item.label} className="min-h-24">
+                <Card key={item.label} className="min-h-24 hover:scale-102">
                   {isLoading ? (
                     <div className="space-y-3">
                       <Skeleton className="h-4 w-2/5" />
@@ -147,7 +147,7 @@ export const Homepage = () => {
           {classes.map((item) => (
             <Card
               key={item.title}
-              className="relative flex min-h-56 w-full items-end overflow-hidden bg-cover bg-center text-white"
+              className="relative flex min-h-56 w-full items-end overflow-hidden bg-cover bg-center text-white hover:scale-102"
               style={{
                 backgroundImage: ` url("${item.backgroundImage}")`,
               }}

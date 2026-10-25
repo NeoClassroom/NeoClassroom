@@ -71,6 +71,7 @@ import {
   BookIcon,
   LearningIcon,
   AttendanceIcon,
+  NeoClassroomLogo,
   ChartGradeIcon,
   DiscussionIcon,
 } from "./icons";
@@ -149,6 +150,7 @@ describe("Icons", () => {
     { name: "BookIcon", icon: BookIcon },
     { name: "LearningIcon", icon: LearningIcon },
     { name: "AttendanceIcon", icon: AttendanceIcon },
+    { name: "NeoClassroomIcon", icon: NeoClassroomLogo },
     { name: "ChartGradeIcon", icon: ChartGradeIcon },
     { name: "DiscussionIcon", icon: DiscussionIcon },
   ];

@@ -65,5 +65,6 @@ export * from "./ResourcesIcon";
 export * from "./BookIcon";
 export * from "./LearningIcon";
 export * from "./AttendanceIcon";
+export * from "./NeoClassroomIcon";
 export * from "./ChartGradeIcon";
 export * from "./DiscussionIcon";

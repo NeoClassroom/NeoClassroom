@@ -68,6 +68,7 @@ import {
   BookIcon,
   LearningIcon,
   AttendanceIcon,
+  NeoClassroomLogo,
   ChartGradeIcon,
   DiscussionIcon,
 } from "./icons";
@@ -159,6 +160,7 @@ export const NiomIcons = {
         BookIcon,
         LearningIcon,
         AttendanceIcon,
+        NeoClassroomLogo,
         ChartGradeIcon,
         DiscussionIcon,
       ].map((IconComponent, index) => (

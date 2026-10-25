@@ -8,6 +8,7 @@ import {
   GradeIcon,
   HomeIcon,
   Menu,
+  NeoClassroomLogo,
   Profile,
   ResourcesIcon,
   SettingsIcon,
@@ -32,7 +33,7 @@ const navigationItems = [
 
 export const LeftLayout = ({
   title = "NeoClassroom",
-  icon = <Profile />,
+  icon = <NeoClassroomLogo size={40} />,
   children,
   position = "left",
   collapsed = false,
@@ -96,7 +97,14 @@ export const LeftLayout = ({
               {icon}
             </span>
           )}
-          <p className="truncate text-xl font-bold group-data-[collapsed=true]/sidebar:lg:hidden">
+          <p
+            className="
+  truncate flex items-center text-lg font-bold
+  group-data-[collapsed=true]/sidebar:lg:hidden
+  bg-linear-to-r from-primary  to-success
+  bg-clip-text text-transparent
+"
+          >
             {title}
           </p>
           <Button
@@ -109,7 +117,7 @@ export const LeftLayout = ({
             aria-expanded={!collapsed}
             onClick={onToggleCollapsed}
           >
-            <Menu size={28} />
+            <Menu size={24} />
           </Button>
           <Button
             variant="ghost"

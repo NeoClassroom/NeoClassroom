@@ -18,9 +18,13 @@ src/
 ## Scripts
 
 - `npm install`
-- `npm run dev`
+- `npm run dev` — starts Vite, Storybook on port 6007, and Vitest in watch mode together
+- `npm test` — runs the test suite once
+- `npm run storybook` — starts Storybook by itself
 - `npm run build`
 - `npm run lint`
+
+Git commits run `npm test` through the Husky pre-commit hook.
 
 ## Notes
 

@@ -1,2 +1,3 @@
 export * from "./HomePage";
-export * from "./AboutUsPage";
+export * from "./ClassesPage";
+export * from "./Calender";

@@ -74,6 +74,10 @@ import {
   NeoClassroomLogo,
   ChartGradeIcon,
   DiscussionIcon,
+  PaperClipIcon,
+  NoteIcon,
+  TeamIcon,
+  CheckboxIcon
 } from "./icons";
 import { Icon } from "./Icon";
 import { ResourcesIcon } from "./icons/ResourcesIcon";
@@ -153,6 +157,10 @@ describe("Icons", () => {
     { name: "NeoClassroomIcon", icon: NeoClassroomLogo },
     { name: "ChartGradeIcon", icon: ChartGradeIcon },
     { name: "DiscussionIcon", icon: DiscussionIcon },
+    { name: "PaperClipIcon", icon: PaperClipIcon },
+    { name: "NoteIcon", icon: NoteIcon },
+    { name: "TeamIcon", icon: TeamIcon },
+    { name: "CheckboxIcon", icon: CheckboxIcon },
   ];
 
   icons.forEach(({ name, icon: Icons }) => {

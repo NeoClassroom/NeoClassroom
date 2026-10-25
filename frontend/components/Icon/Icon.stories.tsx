@@ -71,6 +71,10 @@ import {
   NeoClassroomLogo,
   ChartGradeIcon,
   DiscussionIcon,
+  PaperClipIcon,
+  NoteIcon,
+  TeamIcon,
+  CheckboxIcon,
 } from "./icons";
 import { Icon } from "./Icon";
 import { ResourcesIcon } from "./icons/ResourcesIcon";
@@ -163,6 +167,10 @@ export const NiomIcons = {
         NeoClassroomLogo,
         ChartGradeIcon,
         DiscussionIcon,
+        PaperClipIcon,
+        NoteIcon,
+        TeamIcon,
+        CheckboxIcon,
       ].map((IconComponent, index) => (
         <div key={index} className="flex flex-col items-center gap-2">
           <Icon icon={IconComponent} size={32} color="var(--color-primary)" />

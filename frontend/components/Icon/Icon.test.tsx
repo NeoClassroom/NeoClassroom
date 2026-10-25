@@ -71,6 +71,7 @@ import {
   BookIcon,
   LearningIcon,
   AttendanceIcon,
+  ChartGradeIcon,
 } from "./icons";
 import { Icon } from "./Icon";
 import { ResourcesIcon } from "./icons/ResourcesIcon";
@@ -147,6 +148,7 @@ describe("Icons", () => {
     { name: "BookIcon", icon: BookIcon },
     { name: "LearningIcon", icon: LearningIcon },
     { name: "AttendanceIcon", icon: AttendanceIcon },
+    { name: "ChartGradeIcon", icon: ChartGradeIcon },
   ];
 
   icons.forEach(({ name, icon: Icons }) => {

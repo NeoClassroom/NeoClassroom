@@ -65,3 +65,4 @@ export * from "./ResourcesIcon";
 export * from "./BookIcon";
 export * from "./LearningIcon";
 export * from "./AttendanceIcon";
+export * from "./ChartGradeIcon";

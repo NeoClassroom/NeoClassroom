@@ -1,0 +1,66 @@
+ import type { SVGprops } from "./Icon.type";
+ 
+ export const PaperClipIcon= ({
+   size = 24,
+   width = size,
+   height = size,
+   color = "currentColor",
+   ...props
+ }: SVGprops) => (
+ <svg
+    width={width}
+    height={height}
+    viewBox="-5.25 0 50 50"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g
+      id="Group_19"
+      data-name="Group 19"
+      transform="translate(-1219.44 -717.022)"
+    >
+      <path
+        id="Path_50"
+        data-name="Path 50"
+        d="M1256.94,765.022h-35.5v-46h21.25l14.25,15.75Z"
+        fill={color}
+        stroke="#231f20"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={4}
+      />
+      <path
+        id="Path_51"
+        data-name="Path 51"
+        d="M1241.69,720.022v14.75h14.25"
+        fill={color}
+        stroke="#231f20"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={4}
+      />
+      <line
+        id="Line_28"
+        data-name="Line 28"
+        x2={20.75}
+        transform="translate(1227.69 757.272)"
+        fill="none"
+        stroke="#231f20"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={4}
+      />
+      <line
+        id="Line_29"
+        data-name="Line 29"
+        x2={10.75}
+        transform="translate(1227.69 749.272)"
+        fill="none"
+        stroke="#231f20"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={4}
+      />
+    </g>
+  </svg>
+);

@@ -68,3 +68,7 @@ export * from "./AttendanceIcon";
 export * from "./NeoClassroomIcon";
 export * from "./ChartGradeIcon";
 export * from "./DiscussionIcon";
+export * from "./PaperClip";
+export * from "./NoteIcon"; 
+export * from "./TeamIcon";
+export * from "./CheckboxIcon";

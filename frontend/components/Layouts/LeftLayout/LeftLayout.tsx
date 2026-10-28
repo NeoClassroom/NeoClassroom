@@ -80,8 +80,9 @@ export const LeftLayout = ({
       </Button>
       <aside
         className={cn(
-          "fixed inset-y-0 z-50 flex h-dvh w-72 flex-col overflow-y-auto border-border bg-sidebar text-center transition-[width,transform] duration-200 ease-in-out lg:translate-x-0",
-          isCollapsed ? "lg:w-20" : "lg:w-72",
+          "fixed inset-y-0 z-50 flex h-dvh w-72 flex-col overflow-y-auto overflow-hidden border-border bg-sidebar text-center transition-[width,transform] duration-200 ease-in-out lg:translate-x-0",
+
+          isCollapsed ? "lg:w-18" : "lg:w-72",
           mobileOpen ? "translate-x-0" : "-translate-x-full",
           LEFTLAYOUT_STYLE[position],
         )}

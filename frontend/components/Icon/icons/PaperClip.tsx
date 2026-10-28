@@ -1,65 +1,25 @@
- import type { SVGprops } from "./Icon.type";
- 
- export const PaperClipIcon= ({
-   size = 24,
-   width = size,
-   height = size,
-   color = "currentColor",
-   ...props
- }: SVGprops) => (
- <svg
+import type { SVGprops } from "./Icon.type";
+
+export const PaperClipIcon = ({
+  fill = "currentColor",
+  size = 24,
+  width = size,
+  height = size,
+  color = "currentColor",
+  ...props
+}: SVGprops) => (
+  <svg
     width={width}
     height={height}
-    viewBox="-5.25 0 50 50"
+    viewBox="0 0 16 16"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <g
-      id="Group_19"
-      data-name="Group 19"
-      transform="translate(-1219.44 -717.022)"
-    >
+    <rect x={0} y={0} width={16} height={16} rx={2.5} ry={2.5} fill={fill} />
+    <g transform="translate(8 8) scale(0.72) translate(-8 -8)">
       <path
-        id="Path_50"
-        data-name="Path 50"
-        d="M1256.94,765.022h-35.5v-46h21.25l14.25,15.75Z"
         fill={color}
-        stroke="#231f20"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={4}
-      />
-      <path
-        id="Path_51"
-        data-name="Path 51"
-        d="M1241.69,720.022v14.75h14.25"
-        fill={color}
-        stroke="#231f20"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={4}
-      />
-      <line
-        id="Line_28"
-        data-name="Line 28"
-        x2={20.75}
-        transform="translate(1227.69 757.272)"
-        fill="none"
-        stroke="#231f20"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={4}
-      />
-      <line
-        id="Line_29"
-        data-name="Line 29"
-        x2={10.75}
-        transform="translate(1227.69 749.272)"
-        fill="none"
-        stroke="#231f20"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={4}
+        d="M2.7 15.3c-0.7 0-1.4-0.3-1.9-0.8-0.9-0.9-1.2-2.5 0-3.7l8.9-8.9c1.4-1.4 3.8-1.4 5.2 0s1.4 3.8 0 5.2l-7.4 7.4c-0.2 0.2-0.5 0.2-0.7 0s-0.2-0.5 0-0.7l7.4-7.4c1-1 1-2.7 0-3.7s-2.7-1-3.7 0l-8.9 8.9c-0.8 0.8-0.6 1.7 0 2.2 0.6 0.6 1.5 0.8 2.2 0l8.9-8.9c0.2-0.2 0.2-0.5 0-0.7s-0.5-0.2-0.7 0l-7.4 7.4c-0.2 0.2-0.5 0.2-0.7 0s-0.2-0.5 0-0.7l7.4-7.4c0.6-0.6 1.6-0.6 2.2 0s0.6 1.6 0 2.2l-8.9 8.9c-0.6 0.4-1.3 0.7-1.9 0.7z"
       />
     </g>
   </svg>

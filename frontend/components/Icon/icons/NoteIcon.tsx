@@ -1,4 +1,3 @@
-
 import type { SVGprops } from "./Icon.type";
 
 export const NoteIcon = ({
@@ -6,53 +5,26 @@ export const NoteIcon = ({
   size = 24,
   width = size,
   height = size,
+  fill = "currentColor",
   ...props
 }: SVGprops) => (
-<svg
-    fill={color}
+  <svg
     width={width}
     height={height}
-    viewBox="0 0 24 24"
-    id="note"
-    data-name="Flat Line"
+    viewBox="0 0 48 48"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="icon flat-line"
     {...props}
   >
-    <path
-      id="secondary"
-      d="M18,4H15V5a1,1,0,0,1-1,1H10A1,1,0,0,1,9,5V4H6A1,1,0,0,0,5,5V20a1,1,0,0,0,1,1H18a1,1,0,0,0,1-1V5A1,1,0,0,0,18,4Z"
-      style={{
-        fill: props.fill,
-        strokeWidth: 2,
-      }}
-    />
-    <rect
-      id="primary"
-      x={9}
-      y={3}
-      width={6}
-      height={3}
-      rx={1}
-      style={{
-        fill: "none",
-        stroke: "rgb(0, 0, 0)",
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        strokeWidth: 2,
-      }}
-    />
-    <path
-      id="primary-2"
-      data-name="primary"
-      d="M18,4a1,1,0,0,1,1,1V20a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V5A1,1,0,0,1,6,4"
-      style={{
-        fill: "none",
-        stroke: "rgb(0, 0, 0)",
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        strokeWidth: 2,
-      }}
-    />
+    <rect x={0} y={0} width={48} height={48} rx={8} ry={8} fill={fill} />
+    <g transform="translate(24 24) scale(0.78) translate(-24 -24)">
+      <path
+        d="M8 6C8 4.89543 8.89543 4 10 4H30L40 14V42C40 43.1046 39.1046 44 38 44H10C8.89543 44 8 43.1046 8 42V6Z"
+        fill={fill}
+        stroke={color}
+        strokeWidth={4}
+        strokeLinejoin="round"
+      />
+    </g>
   </svg>
 );

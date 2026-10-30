@@ -1,142 +1,24 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "../../components/Atoms/Card";
 import { Skeleton } from "../../components/Atoms/Skeleton";
 import { MainLayout } from "../../components/Layouts/MainLayout";
 import { ChatWidget } from "../../components/widget";
 
-import backgroundImage from "../../src/assets/background1.png";
-import backgroundImage2 from "../../src/assets/bgimg2.png";
-import backgroundImage3 from "../../src/assets/bgimg3.png";
+import { overview, profilename,  classes } from "./Homepage.constants";
 
+import backgroundImage from "../../src/assets/background1.png";
 import {
-  ArrowRight,
-  AttendanceIcon,
-  BookIcon,
-  CalenderIcon,
-  LearningIcon,
-  NoteIcon,
+  AssignmentIcon,
+  Clock,
 } from "../../components/Icon";
 
 import { Button } from "../../components/Atoms/Button";
 
-// Overview cards
-const overview = [
-  {
-    id: "overview-1",
-    logo: <BookIcon fill="var(--color-secondary)" size={50} />,
-    label: "Active classes",
-    value: "06",
-    icon: <ArrowRight />,
-  },
-  {
-    id: "overview-2",
-    logo: <LearningIcon fill="var(--color-secondary)" size={50} />,
-    label: "Assignments due",
-    value: "03",
-    icon: <ArrowRight />,
-  },
-  {
-    id: "overview-3",
-    logo: <AttendanceIcon fill="var(--color-secondary)" size={50} />,
-    label: "Grades",
-    value: "94%",
-    icon: <ArrowRight />,
-  },
-];
 
-// Date formatting
-const WEEKDAYS = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-
-const MONTHS = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-const currentDate = new Date();
-
-const formattedDate = `${
-  WEEKDAYS[currentDate.getDay()]
-}, ${currentDate.getDate()} ${MONTHS[currentDate.getMonth()]}`;
-
-const classData = [
-  {
-    id: "assignment-1",
-    icon: (
-      <NoteIcon
-        size={40}
-        color="var(--color-tertiary)"
-        className="bg-primary rounded-4xl"
-        fill="blue"
-      />
-    ),
-    title: "Lab1",
-    dueDate: "1 Dec, 2026",
-  },
-  {
-    id: "assignment-2",
-    icon: <NoteIcon />,
-    title: "Lab2",
-    dueDate: "1 Nov, 2026",
-  },
-  {
-    id: "assignment-3",
-    icon: <NoteIcon />,
-    title: "Lab3",
-    dueDate: "1 Sept, 2026",
-  },
-];
-
-const classes = [
-  {
-    id: "class-1",
-    title: "OOSD",
-    description: "BSE/25A/FT1",
-    backgroundImage,
-    assignments: classData,
-    buttonDown: (
-      <Button size="sm" className="ml-auto" variant="ghost">
-        <p>View Classes</p>
-        <ArrowRight />
-      </Button>
-    ),
-  },
-  {
-    id: "class-2",
-    title: "ASAS",
-    description: "BSE/25A/FT1",
-    backgroundImage: backgroundImage2,
-    assignments: classData,
-    buttonDown: (
-      <Button size="sm" className="ml-auto" variant="ghost">
-        <p>View Classes</p>
-        <ArrowRight />
-      </Button>
-    ),
-  },
-  {
-    id: "calendar-1",
-    logo: <CalenderIcon size={35} />,
-    displaydate: formattedDate,
-    title: "Today",
-    backgroundImage: backgroundImage3,
-    assignments: [],
-    button: <Button variant="ghost">View Calendar</Button>,
-  },
-];
-
-const profilename = "Harsh";
 
 export const Homepage = () => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -146,6 +28,7 @@ export const Homepage = () => {
   }, []);
 
   return (
+    <>
     <MainLayout>
       <div className="space-y-6 overflow-hidden">
         {/* Welcome Section */}
@@ -221,12 +104,12 @@ export const Homepage = () => {
             My Classes
           </h2>
 
-          <div className="flex w-full flex-col gap-4 sm:flex-row">
+          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {classes.map((item) => (
               <Card
                 key={item.id}
                 id={item.id}
-                className="relative flex min-h-56 w-full items-end overflow-hidden bg-cover bg-center hover-mode text-white hover:scale-102"
+                className="relative flex min-h-60 w-full items-end overflow-hidden bg-cover bg-center hover-mode text-white sm:min-h-64 hover:scale-[1.01]"
                 style={{
                   backgroundImage: `url("${item.backgroundImage}")`,
                 }}
@@ -235,15 +118,21 @@ export const Homepage = () => {
                   <div className="flex w-full flex-col">
                     <div className="flex flex-row items-center justify-between">
                       <div className="flex flex-col">
-                        <span className="flex flex-row gap-3">
+                        <h3 className="flex flex-row gap-3 items-center">
                           {item.logo}
                           {item.title}
-                        </span>
+                        </h3>
 
-                        <span className="text-sm">{item.description}</span>
+                        {item.description && (
+                          <p className="text-sm">{item.description}</p>
+                        )}
                       </div>
 
-                      <span>{item.button}</span>
+                      <span
+                        onClick={item.button ? () => navigate("/calender") : undefined}
+                      >
+                        {item.button}
+                      </span>
                     </div>
 
                     <span className="text-sm text-foreground/60">
@@ -253,29 +142,42 @@ export const Homepage = () => {
                     <Card
                       id={`${item.id}-content`}
                       variant="outline"
-                      className="mt-5 w-full min-h-40 backdrop-blur-2xl border-none"
+                      className="mt-5 min-h-40 w-full space-y-1 backdrop-blur-md border-none"
                     >
                       {item.assignments.map((assignment) => (
-                        <div
+                        <Button
                           key={assignment.id}
-                          id={`${item.id}-${assignment.id}`}
-                          className="flex items-center gap-3 py-2"
+                          size="sm"
+                          variant="ghost"
+                          className="h-auto w-full justify-start gap-3 rounded-xl px-2 py-1.5 text-left"
                         >
-                          <span>{assignment.icon}</span>
-
-                          <div className="flex flex-col">
-                            <p className="text-sm font-medium">
-                              {assignment.title}
-                            </p>
-
-                            <p className="text-xs text-white/60">
-                              Due: {assignment.dueDate}
-                            </p>
+                          <div
+                            id={`${item.id}-${assignment.id}`}
+                            className="grid w-full min-w-0 grid-cols-[32px_minmax(0,1fr)] items-center gap-3"
+                          >
+                            <span className="flex h-8 w-8 shrink-0 items-center justify-center">
+                              {assignment.icon}
+                            </span>
+                            <div className="flex min-w-0 flex-col items-start">
+                              <p className="truncate text-sm font-medium">
+                                {assignment.title}
+                              </p>
+                              <p className="text-xs text-white/60">
+                                Due: {assignment.dueDate}
+                              </p>
+                            </div>
                           </div>
-                        </div>
+                        </Button>
                       ))}
 
-                      {item.buttonDown}
+                      {item.buttonDown && (
+                        <span
+                          className="ml-auto"
+                          onClick={() => navigate("/classes")}
+                        >
+                          {item.buttonDown}
+                        </span>
+                      )}
                     </Card>
                   </div>
                 </div>
@@ -284,8 +186,42 @@ export const Homepage = () => {
           </div>
         </section>
       </div>
+      <section className="pt-10">
+      
+        <div className="flex  gap-4 justify-between ">
+          <div className="flex flex-col w-full">
+            <div className="flex flex-row gap-6">
+          <AssignmentIcon/>
+         <h2 className="font-bold text-xl mb-4">
+            Upcoming Activity
+          </h2>
+          </div>
+          <Card className="w-auto">
+
+          </Card>
+          </div>
+
+          <div className="flex flex-col  w-full">
+            <div className="flex flex-row gap-6">
+            <Clock/>
+         <h2 className="font-bold text-xl mb-4">
+            Recent Activity
+          </h2>
+          </div>
+          <Card className="w-auto">
+            
+          </Card>
+
+          </div>
+         
+          </div>
+       
+      </section>
 
       <ChatWidget />
     </MainLayout>
+    </>
   );
+  
 };
+

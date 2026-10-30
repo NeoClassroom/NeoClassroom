@@ -140,13 +140,13 @@ describe("Homepage navigation", () => {
     );
 
     const sidebar = screen.getByTestId("sidebar-shell");
-    expect(sidebar).toHaveAttribute("data-collapsed", "false");
-
-    fireEvent.click(screen.getByRole("button", { name: "Collapse sidebar" }));
     expect(sidebar).toHaveAttribute("data-collapsed", "true");
 
     fireEvent.click(screen.getByRole("button", { name: "Expand sidebar" }));
     expect(sidebar).toHaveAttribute("data-collapsed", "false");
+
+    fireEvent.click(screen.getByRole("button", { name: "Collapse sidebar" }));
+    expect(sidebar).toHaveAttribute("data-collapsed", "true");
   });
 
   it("hides the profile icon but keeps settings when collapsed", () => {
@@ -155,8 +155,6 @@ describe("Homepage navigation", () => {
         <Homepage />
       </MemoryRouter>,
     );
-
-    fireEvent.click(screen.getByRole("button", { name: "Collapse sidebar" }));
 
     expect(screen.queryByTestId("sidebar-profile")).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Settings" })).toBeInTheDocument();

@@ -10,15 +10,25 @@ export const MainLayout = ({
   children,
 }: MainLayoutProps) => {
   const user = "harshhemraz403@gmail.com";
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    return window.localStorage.getItem("sidebar-collapsed") !== "false";
+  });
   const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed((collapsed) => {
+      const nextCollapsed = !collapsed;
+      window.localStorage.setItem("sidebar-collapsed", String(nextCollapsed));
+      return nextCollapsed;
+    });
+  };
 
   return (
     <div className="min-h-dvh">
       <LeftLayout
         collapsed={sidebarCollapsed}
         mobileOpen={mobileNavigationOpen}
-        onToggleCollapsed={() => setSidebarCollapsed((collapsed) => !collapsed)}
+        onToggleCollapsed={toggleSidebar}
         onCloseMobile={() => setMobileNavigationOpen(false)}
       />
 
@@ -28,7 +38,7 @@ export const MainLayout = ({
           sidebarCollapsed ? "lg:pl-20" : "lg:pl-72",
         )}
       >
-        <header className="sticky top-0 z-30 flex min-h-16 items-center gap-3 border-b border-border bg-background/95 px-4 py-3 backdrop-blur sm:px-6">
+        <header className="sticky top-0 z-30 flex min-h-16 items-center gap-2 border-b border-border bg-background/95 px-3 py-2.5 backdrop-blur sm:px-5 lg:px-6">
           <Button
             variant="ghost"
             className="shrink-0 p-2 lg:hidden"
@@ -65,7 +75,7 @@ export const MainLayout = ({
           </p>
         </header>
 
-        <main className="min-w-0 p-4 sm:p-6">{children}</main>
+        <main className="min-w-0 px-3 py-4 sm:px-5 lg:px-6 lg:py-6 2xl:px-8">{children}</main>
       </div>
     </div>
   );

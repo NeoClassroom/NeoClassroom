@@ -47,7 +47,13 @@ export const LeftLayout = ({
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const routeActivePage =
-    pathname === "/classes" ? "classes" : pathname === "/" ? "home" : undefined;
+    pathname === "/classes"
+      ? "classes"
+      : pathname === "/calender"
+        ? "calendar"
+        : pathname === "/"
+          ? "home"
+          : undefined;
   const [selection, setSelection] = useState<{
     pathname: string;
     pageId: (typeof navigationItems)[number]["id"];
@@ -131,7 +137,7 @@ export const LeftLayout = ({
         </div>
 
         <div onClick={onCloseMobile}>
-          <nav aria-label="Main navigation" className="space-y-5 px-5">
+          <nav aria-label="Main navigation" className="space-y-5 px-5 group-data-[collapsed=true]/sidebar:lg:px-2">
             {navigationItems.map((item) => {
               const isActive = activePage === item.id;
 
@@ -139,7 +145,7 @@ export const LeftLayout = ({
                 <Button
                   key={item.id}
                   className={cn(
-                    "w-full justify-start rounded-3xl transition-all duration-200 [&>svg]:shrink-0 group-data-[collapsed=true]/sidebar:lg:justify-center",
+                    "w-full justify-start rounded-3xl transition-all duration-200 [&>svg]:shrink-0 group-data-[collapsed=true]/sidebar:lg:h-12 group-data-[collapsed=true]/sidebar:lg:w-12 group-data-[collapsed=true]/sidebar:lg:mx-auto group-data-[collapsed=true]/sidebar:lg:justify-center group-data-[collapsed=true]/sidebar:lg:px-0",
                     isActive
                       ? "bg-linear-to-r from-primary/30 to-accent/20 text-white shadow-lg shadow-primary/20"
                       : "text-text-secondary",
